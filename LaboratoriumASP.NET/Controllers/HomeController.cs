@@ -68,35 +68,35 @@ namespace LaboratoriumASP.NET.Controllers
             return View();
         }
 
-        // Dodaj nową metodę Age
+       
         [HttpGet]
         public IActionResult Age(DateTime? birthDate)
         {
             if (birthDate.HasValue)
             {
-                // Oblicz aktualną datę
+             
                 DateTime today = DateTime.Now;
 
-                // Oblicz różnicę w latach, miesiącach i dniach
+            
                 int years = today.Year - birthDate.Value.Year;
                 int months = today.Month - birthDate.Value.Month;
                 int days = today.Day - birthDate.Value.Day;
 
-                // Korekta na dni
+              
                 if (days < 0)
                 {
                     months--;
                     days += DateTime.DaysInMonth(today.Year, today.Month - 1);
                 }
 
-                // Korekta na miesiące
+            
                 if (months < 0)
                 {
                     years--;
                     months += 12;
                 }
 
-                // Przekazujemy wynik do widoku za pomocą ViewBag
+               
                 ViewBag.AgeResult = $"{years} lat, {months} miesięcy, {days} dni";
                 ViewBag.BirthDate = birthDate.Value.ToShortDateString();
             }
