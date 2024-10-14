@@ -1,0 +1,20 @@
+﻿@{
+ViewData["Title"] = "Oblicz Wiek";
+}
+
+<h2>Oblicz wiek</h2>
+
+<!-- Formularz do wprowadzenia daty urodzin -->
+<form method="get" asp-action="Age" asp-controller="Home">
+    <label for="birthDate">Podaj datę urodzin:</label>
+    <input type="date" id="birthDate" name="birthDate" />
+    <button type="submit">Oblicz wiek</button>
+</form>
+
+<!-- Wyświetlanie wyniku, jeśli istnieje -->
+@if (ViewBag.AgeResult != null)
+{
+<h3>Wynik:</h3>
+<p>Data urodzin: @ViewBag.BirthDate</p>
+<p>Wiek: @ViewBag.AgeResult</p>
+}
